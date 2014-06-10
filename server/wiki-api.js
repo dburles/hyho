@@ -25,13 +25,7 @@ Meteor.methods({
         }
       });
 
-      // console.log(result);
-      // console.log(obj);
-
-      var item = Items.findOne(insert.insertedId);
-      // console.log('item', item);
-
-      return item._id;
+      return insert.insertedId;
 
     } catch (error) {
       throw new Meteor.Error(500, error.message);
