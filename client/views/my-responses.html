@@ -1,0 +1,7 @@
+<template name="myResponses">
+  <ul>
+    {{#each responses}}
+      <li><strong>{{myResponse}}</strong> - <a href="{{item.url}}" target="_blank">{{item.title}}</a></li>
+    {{/each}}
+  </ul>
+</template>

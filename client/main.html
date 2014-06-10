@@ -1,0 +1,52 @@
+<head>
+  <title>Have you heard of?</title>
+</head>
+
+<template name="layout">
+  <ul>
+    <li>{{> loginButtons}}</li>
+    <li><a href="{{pathFor 'main'}}">Home</a></li>
+    <li>
+      <a href="{{pathFor 'myResponses'}}">My responses</a>
+    </li>
+  </ul>
+
+  <h1>Have you heard of?</h1>
+
+  {{> yield}}
+</template>
+
+<template name="main">
+  {{#if currentUser}}
+    <!-- <a href="" class="get">Get one</a> -->
+    <hr>
+
+    {{#if responseLoading}}
+      {{> loading}}
+    {{else}}
+      {{#if currentItem}}
+        {{> item currentItem}}
+      {{else}}
+        {{> loading}}
+      {{/if}}
+    {{/if}}
+
+  {{else}}
+    Please sign-in
+  {{/if}}
+</template>
+
+<template name="item">
+  {{title}}
+  {{{extract}}}
+  <p><a href="{{url}}" target="_blank">Full article</a></p>
+  <hr>
+
+  {{#if response}}
+    <p>You've already answered: {{response.myResponse}}.</p>
+
+    <a href="" class="next">Next</a>
+  {{else}}
+    <a href="" class="response" data-response="yes">Yes</a> - <a href="" class="response" data-response="no">No</a>
+  {{/if}}
+</template>

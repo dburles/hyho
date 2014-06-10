@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "lazy": {},
+    "iron-router": {},
+    "collection-helpers": {}
+  }
+}
